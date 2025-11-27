@@ -1,0 +1,17 @@
+:root {
+  --font: '5ka', sans-serif;
+  --title: 'drukwidecyr', sans-serif;
+
+  --white: #ffffff;
+  --black: #000000;
+  --brown: #5c2e15;
+  --brown-dark: #5c2e15;
+  --yellow: #e9cc29;
+}
+
+@import 'mixins';
+@import 'reset';
+@import 'fonts';
+@import 'buttons';
+@import 'header';
+@import 'content';

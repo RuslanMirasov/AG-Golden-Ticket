@@ -1,0 +1,21 @@
+.button {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  width: myclamp(178px, 385px, 1440px, 1440px);
+  height: myclamp(38px, 100px, 1440px, 1440px);
+  border-radius: 100px;
+  border: myclamp(2px, 5px, 1440px, 1440px) solid var(--white);
+
+  color: var(--brown);
+  font-size: myclamp(13px, 28px, 1440px, 1440px);
+  line-height: 1;
+  font-family: var(--title);
+  font-weight: 500;
+  text-transform: uppercase;
+
+  background: linear-gradient(#efc031, #f4e288, #f1c43f);
+}
