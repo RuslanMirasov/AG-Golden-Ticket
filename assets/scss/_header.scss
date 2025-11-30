@@ -12,7 +12,16 @@
   padding-right: myclamp(30px, 40px, 1440px, 1440px);
   padding-left: myclamp(15px, 40px, 1440px, 1440px);
 
-  @media (max-width: 767px) {
+  h1 {
+    display: block;
+    text-align: center;
+    width: 260px;
+    font-size: 20px;
+    line-height: 0.9;
+    margin-right: auto;
+  }
+
+  @media (max-width: 1279px) {
     height: 80px;
     padding-top: 10px;
     padding-right: 30px;

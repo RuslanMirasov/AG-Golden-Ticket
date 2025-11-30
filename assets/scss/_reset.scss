@@ -92,3 +92,16 @@ button {
   min-height: 100svh;
   background: url('../img/bg.webp') no-repeat center center/cover;
 }
+
+.delete-in-mobil {
+  @media (max-width: 1279px), (orientation: portrait) {
+    display: none !important;
+  }
+}
+
+.show-in-momil {
+  display: none !important;
+  @media (max-width: 1279px), (orientation: portrait) {
+    display: block !important;
+  }
+}

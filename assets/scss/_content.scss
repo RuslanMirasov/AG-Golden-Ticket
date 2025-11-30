@@ -98,7 +98,8 @@
   align-content: center;
   margin-bottom: 70px;
 
-  h1 {
+  h1,
+  h2 {
     display: block;
     text-align: center;
     width: myclamp(260px, 482px, 1440px, 1440px);
@@ -109,16 +110,9 @@
   }
 }
 
-@media (max-width: 767px) {
-  .header {
-    background: var(--brown-dark);
-    position: fixed;
-    left: 0px;
-    top: 0px;
-  }
-
+@media (max-width: 1279px), (orientation: portrait) {
   .content {
-    max-width: 375px;
+    max-width: 490px;
     margin-top: 270px;
     gap: 0px;
   }
@@ -129,7 +123,8 @@
     justify-content: center;
     margin-bottom: 50px;
 
-    h1 {
+    h1,
+    h2 {
       display: block;
       position: fixed;
       left: 10px;

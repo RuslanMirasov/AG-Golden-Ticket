@@ -105,6 +105,21 @@ button:disabled {
   background: url("../img/bg.webp") no-repeat center center/cover;
 }
 
+@media (max-width: 1279px), (orientation: portrait) {
+  .delete-in-mobil {
+    display: none !important;
+  }
+}
+
+.show-in-momil {
+  display: none !important;
+}
+@media (max-width: 1279px), (orientation: portrait) {
+  .show-in-momil {
+    display: block !important;
+  }
+}
+
 @font-face {
   font-family: "5ka";
   src: url("../fonts/5ka-light.woff2") format("woff2"), url("../fonts/5ka-light.woff") format("woff");
@@ -168,7 +183,15 @@ button:disabled {
   padding-right: clamp(30px, 2.7778vw, 40px);
   padding-left: clamp(15px, 2.7778vw, 40px);
 }
-@media (max-width: 767px) {
+.header h1 {
+  display: block;
+  text-align: center;
+  width: 260px;
+  font-size: 20px;
+  line-height: 0.9;
+  margin-right: auto;
+}
+@media (max-width: 1279px) {
   .header {
     height: 80px;
     padding-top: 10px;
@@ -296,7 +319,8 @@ button:disabled {
   align-content: center;
   margin-bottom: 70px;
 }
-.titles h1 {
+.titles h1,
+.titles h2 {
   display: block;
   text-align: center;
   width: clamp(260px, 33.4722vw, 482px);
@@ -306,15 +330,9 @@ button:disabled {
   margin-bottom: clamp(0px, 22.5vw, 324px);
 }
 
-@media (max-width: 767px) {
-  .header {
-    background: var(--brown-dark);
-    position: fixed;
-    left: 0px;
-    top: 0px;
-  }
+@media (max-width: 1279px), (orientation: portrait) {
   .content {
-    max-width: 375px;
+    max-width: 490px;
     margin-top: 270px;
     gap: 0px;
   }
@@ -324,7 +342,8 @@ button:disabled {
     justify-content: center;
     margin-bottom: 50px;
   }
-  .titles h1 {
+  .titles h1,
+  .titles h2 {
     display: block;
     position: fixed;
     left: 10px;
