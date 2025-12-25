@@ -90,6 +90,12 @@ button:disabled {
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  padding-bottom: 0.5rem;
+}
+@media (max-width: 767px) {
+  .gradient {
+    padding-bottom: 0.3rem;
+  }
 }
 
 .main {
