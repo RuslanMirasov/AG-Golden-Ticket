@@ -1,0 +1,48 @@
+.title {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  line-height: 1.1;
+  text-align: center;
+
+  &.title--h1,
+  &.title--h2,
+  &.title--h3 {
+    background-image: linear-gradient(90deg, #fffcb6, #fade79, #f2d344);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.5rem;
+    margin-bottom: -0.5rem;
+    @media (max-width: 767px) {
+      padding-bottom: 0.3rem;
+      margin-bottom: -0.3rem;
+    }
+  }
+
+  &.upper {
+    text-transform: uppercase;
+  }
+
+  &.ta--l {
+    text-align: left;
+  }
+
+  &.ta--right {
+    text-align: right;
+  }
+
+  &.title--h1 {
+    font-size: 64px;
+  }
+
+  &.title--h2 {
+    font-size: 50px;
+  }
+
+  &.title--h3 {
+    font-size: 36px;
+    line-height: 1.3;
+  }
+}

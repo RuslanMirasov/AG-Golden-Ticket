@@ -1,0 +1,90 @@
+.header--soon {
+  height: myclamp(80px, 158px, 1440px, 1440px);
+  width: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  z-index: 3;
+  left: 0px;
+  top: 0px;
+  padding-top: myclamp(10px, 30px, 1440px, 1440px);
+  padding-right: myclamp(30px, 40px, 1440px, 1440px);
+  padding-left: myclamp(15px, 40px, 1440px, 1440px);
+}
+.header--soon h1 {
+  display: block;
+  text-align: center;
+  width: 260px;
+  font-size: 20px;
+  line-height: 0.9;
+  margin-right: auto;
+}
+.header--soon .logo-soon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: myclamp(55px, 92px, 1440px, 1440px);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.header--soon .logo-soon img {
+  width: 100%;
+}
+.header--soon .logo-soon p {
+  position: absolute;
+  top: calc(100% + myclamp(4px, 15px, 1440px, 1440px));
+  white-space: nowrap;
+  font-size: myclamp(9px, 12px, 1440px, 1440px);
+  font-weight: 300;
+  opacity: 0.5;
+}
+@media (max-width: 1279px) {
+  .header--soon {
+    height: 80px;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-left: 15px;
+  }
+}
+
+.main-soon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100svh;
+  background: url("../img/bg.webp") no-repeat center center/cover;
+}

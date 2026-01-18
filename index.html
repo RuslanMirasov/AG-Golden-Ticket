@@ -1,49 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#0A2896" />
+    <meta name="theme-color" content="#409045" />
     <meta name="description" content="AG-Golden-Ticket" />
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
     <link rel="stylesheet" href="./assets/css/styles.min.css" />
     <title>AG-Golden-Ticket</title>
   </head>
   <body>
+    <!--HEADER-->
     <header class="header">
-      <h1 class="gradient show-in-momil">воОООот столько <br />золотых билетов <br />ждут вас!</h1>
-      <div class="logo">
-        <img src="./assets/img/logo.svg" alt="AG-Golden-Ticket" />
-        <p>02.02.2026 - 29.03.2026</p>
+      <div class="container">
+        <a href="./" class="logo" aria-label="Alpen gold">
+          <img src="./assets/img/logo.svg" alt="Ascania" width="100" />
+        </a>
+
+        <nav class="navigation">
+          <ul class="menu">
+            <li><a href="./#prizes" class="menu__link" data-scrollto="0">Призы</a></li>
+            <li><a href="./#products" class="menu__link" data-scrollto="0">Товары-участники</a></li>
+            <li><a href="./#winners" class="menu__link" data-scrollto="0">Победители</a></li>
+            <li><a href="./#questions" class="menu__link" data-scrollto="0">Вопросы</a></li>
+            <li>
+              <a href="#" class="menu__link" data-popup-open="online"> <b>участвовать в онлайн-розыгрыше</b> </a>
+            </li>
+            <li>
+              <button type="button" class="button-gradient small" data-popup-open="login"><span>Личный кабинет</span></button>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="burger">
+          <span>Меню бургер</span>
+        </button>
       </div>
     </header>
 
     <main class="main">
-      <div class="content">
-        <!--left-->
-        <img src="./assets/img/img1.webp" alt="" class="img1" />
-
-        <!--center-->
-        <div class="choco">
-          <h2 class="choco__title gradient">ищи<br />в упаковках</h2>
-
-          <p class="choco__start">
-            <span>Акция стартует</span>
-            <span class="yellow">2 февраля 2026</span>
-          </p>
-
-          <p class="choco__center">
-            Ищите билеты<br />в упаковке шоколада <span class="gradient">Alpen Gold</span>,<br />сохраняйте их и возвращайтесь<br />за призом!
-          </p>
+      <!--SECTION HERO-->
+      <section class="section section--hero">
+        <div class="hero">
+          <div class="container">
+            <div class="hero-content">
+              <h1 class="title title--h1">
+                воОООот столько <br />
+                золотых билетов
+              </h1>
+              <h2 class="hero-white-title">НАШЛИ БИЛЕТ?<br />РЕГИСТРИРУЙТЕ КОД ЗДЕСЬ!</h2>
+              <img src="./assets/img/hero/shokolad-back.webp" alt="Alpen gold" class="shokolad-back" />
+              <button type="button" class="button">
+                <span>зарегистрировать<br />код</span>
+              </button>
+            </div>
+          </div>
         </div>
-
-        <!--right-->
-        <div class="titles">
-          <h2 class="gradient delete-in-mobil">воОООот столько <br />золотых билетов <br />ждут вас!</h2>
-          <a href="#" class="button">Забрать приз</a>
+        <div class="hero-form">
+          <div class="container">
+            <img src="./assets/img/hero/shokolad-front.webp" alt="Alpen gold" class="shokolad-front" />
+            <h2 class="title title--h3 upper">А еще участвуйте в розыгрыше онлайн золотых билетов!</h2>
+            <button type="button" class="button" data-popup-open="online"><span>участвовать</span></button>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <!--SECTION HERO-->
+      <section class="section section--prizes" id="prizes">
+        <div class="container">
+          <h2 class="title title--h2">Призы</h2>
+        </div>
+      </section>
     </main>
+
+    <!--FOOTER-->
+    <footer class="footer">
+      <div class="container">
+        <menu class="footer__menu">
+          <li><a href="#" target="_blank">Правила акции</a></li>
+          <li><a href="#" target="_blank">Политика конфиденциальности</a></li>
+          <li><a href="#" target="_blank">Политика в&nbsp;отношении обработки персональных&nbsp;данных</a></li>
+        </menu>
+        <p class="copy">
+          Сроки проведения акции, включая сроки выдачи призов, — с&nbsp;2&nbsp;февраля по&nbsp;15&nbsp;июля 2026&nbsp;г. Период покупок
+          для&nbsp;участия в&nbsp;розыгрыше призов на&nbsp;сайте <a href="actions.5ka.ru" target="_blank">actions.5ka.ru</a> — с&nbsp;2&nbsp;февраля
+          по&nbsp;29&nbsp;марта 2026&nbsp;г. Период активации промокодов с&nbsp;билетов внутри упаковок на&nbsp;сайте золотойбилет.рф — с&nbsp;2
+          февраля по&nbsp;31&nbsp;мая&nbsp;2026&nbsp;г. Информацию об Организаторе акции, о&nbsp;правилах ее&nbsp;проведения, количестве призов,
+          сроке, месте и&nbsp;порядке их&nbsp;получения можно узнать на&nbsp;сайте <a href="actions.5ka.ru" target="_blank">actions.5ka.ru</a>.
+          Внешний вид призов&nbsp;может отличаться от&nbsp;изображений в&nbsp;рекламных материалах.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./assets/js/scripts.js" type="module" defer></script>
   </body>
 </html>
