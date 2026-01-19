@@ -1,3 +1,165 @@
 .section--prizes {
-  padding: 50px 0px;
+  padding: 25px 0px;
+}
+
+.prizes {
+  position: relative;
+  margin-top: 40px;
+  @media (max-width: 1279px) {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 1023px) {
+    max-width: 630px;
+  }
+  @media (max-width: 767px) {
+    margin-top: 20px;
+  }
+  .swiper,
+  .swiper-wrapper {
+    overflow: visible;
+  }
+  // .arrow {
+  //   &[data-arrow-prev] {
+  //     transform: translate(-50%, -100%);
+  //   }
+  //   &[data-arrow-next] {
+  //     transform: translate(50%, -100%);
+  //   }
+  // }
+  @media (min-width: 768px) {
+    .arrow {
+      display: none;
+    }
+    .swiper {
+      display: block;
+      width: 100%;
+      .swiper-wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px 0px;
+        @media (max-width: 1023px) {
+          justify-content: center;
+          align-items: center;
+          align-content: center;
+        }
+        .swiper-slide {
+          display: block;
+          width: 314px !important;
+          &:nth-child(1),
+          &:nth-child(2) {
+            width: 470px !important;
+            align-self: center;
+            @media (max-width: 1279px) {
+              width: 36% !important;
+            }
+            @media (max-width: 1023px) {
+              width: 314px !important;
+            }
+          }
+          &:nth-child(3) {
+            margin-right: auto;
+          }
+          &:nth-child(5) {
+            margin-left: auto;
+            @media (max-width: 1023px) {
+              margin-left: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.prize {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+}
+
+.prize-price {
+  display: flex;
+  position: relative;
+  width: 208px;
+  height: 208px;
+  border-radius: 208px;
+  background: var(--green);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  .plashka {
+    display: flex;
+    position: relative;
+    top: -10px;
+    width: 298px;
+    height: 128px;
+    background: url('../img/svg/price.svg') no-repeat center center/cover;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-shrink: 0;
+    transform: rotate(-15deg);
+
+    span {
+      display: block;
+      font-size: 80px;
+      line-height: 1;
+      color: transparent;
+      font-family: var(--prise);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      background-image: linear-gradient(90deg, #540800, #b13c1a, #520903);
+      background-clip: text;
+      -webkit-background-clip: text;
+      padding: 0.5rem;
+    }
+  }
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: url('../img/shadow.webp') no-repeat center bottom;
+    background-size: 100% auto;
+  }
+  @media (max-width: 1279px) {
+    width: 164px;
+    height: 164px;
+    .plashka {
+      width: 232px;
+      height: 98px;
+      span {
+        font-size: 57px;
+      }
+    }
+  }
+}
+
+.prize__text {
+  font-size: 30px;
+  line-height: 1.1;
+  text-align: center;
+  font-weight: 400;
+  @media (max-width: 1279px) {
+    font-size: 20px;
+    max-width: 304px;
+    br {
+      display: none;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 :root {
   --font: '5ka', sans-serif;
   --title: 'drukwidecyr', sans-serif;
+  --prise: 'din-condensed', sans-serif;
 
   --white: #ffffff;
   --black: #000000;
@@ -19,8 +20,8 @@
 @import 'tiography';
 @import 'buttons';
 @import 'header';
-@import 'content';
-@import 'soon';
+@import 'swiper';
 @import 'footer';
 @import 'section__hero';
 @import 'section__prizes';
+@import 'soon';
