@@ -198,6 +198,116 @@
           </div>
         </div>
       </section>
+
+      <!--SECTION QUESTIONS-->
+      <section class="section section--questions" id="questions">
+        <div class="container">
+          <h2 class="title title--h2">Обратная связь</h2>
+
+          <script>
+            const toggleX = e => {
+              e.preventDefault();
+              console.log(e.target);
+            };
+          </script>
+
+          <form action="#" class="form form--white form--questions" novalidate onsubmit="toggleX(event)">
+            <span class="inputError"></span>
+
+            <label class="label">
+              <input type="email" name="email" class="input" placeholder="Ваш e-mail" required="" />
+            </label>
+
+            <label class="label">
+              <input type="text" name="name" class="input" placeholder="Ваше имя" required />
+            </label>
+
+            <label class="label">
+              <input type="text" name="message" class="input" placeholder="Текст сообщения" required />
+            </label>
+
+            <fieldset class="fieldset">
+              <label class="label label--checkbox">
+                <input type="checkbox" name="agree" class="checkbox" placeholder="Согласие на обработку персональных данных" required />
+                <span class="label__text">Я согласна/ен на обработку персональных&nbsp;данных</span>
+              </label>
+            </fieldset>
+
+            <button type="submit" class="button"><span>Отправить</span></button>
+          </form>
+        </div>
+      </section>
+
+      <!--SECTION WINNERS-->
+      <section class="section section--winners" id="winners">
+        <div class="container">
+          <h2 class="title title--h2">Победители</h2>
+
+          <form action="#" class="form form--white form--search" novalidate>
+            <input type="text" name="search" class="input" required />
+            <button type="submit" class="search-submit"></button>
+          </form>
+
+          <div class="table-scroll-area">
+            <ul class="table">
+              <li>
+                <span class="name">Роман ф.</span>
+                <span class="email">em******ail@mail.ru</span>
+                <span class="date">31.09.2026</span>
+                <span class="present">Виртуальная карта «МИР» 3 000 ₽</span>
+              </li>
+              <li>
+                <span class="name">Сергей ф.</span>
+                <span class="email">em******ail@mail.ru</span>
+                <span class="date">31.09.2026</span>
+                <span class="present">Виртуальная карта «МИР» 1&nbsp;000&nbsp; ₽</span>
+              </li>
+              <li>
+                <span class="name">Ксения ф.</span>
+                <span class="email">em******ail@gmail.com</span>
+                <span class="date">31.09.2026</span>
+                <span class="present">50 000 ₽</span>
+              </li>
+              <li>
+                <span class="name">Пантелеймон ф.</span>
+                <span class="email">em******ail@mirasov.dev</span>
+                <span class="date">31.09.2026</span>
+                <span class="present">15 000 ₽</span>
+              </li>
+              <li>
+                <span class="name">Инакентий ф.</span>
+                <span class="email">em******ail@yandex.ru</span>
+                <span class="date">31.09.2026</span>
+                <span class="present">1 000 000 ₽</span>
+              </li>
+              <li>
+                <span class="name">Руслан ф.</span>
+                <span class="email">em******ail@mail.ru</span>
+                <span class="date">31.09.2026</span>
+                <span class="present">Виртуальная карта «МИР» 1&nbsp;000&nbsp; ₽</span>
+              </li>
+              <li>
+                <span class="name">Кристина ф.</span>
+                <span class="email">em******ail@mail.ru</span>
+                <span class="date">31.09.2026</span>
+                <span class="present">Виртуальная карта «МИР» 1&nbsp;000&nbsp; ₽</span>
+              </li>
+              <li>
+                <span class="name">Маргарита ф.</span>
+                <span class="email">em******ail@yandex.ru</span>
+                <span class="date">31.09.2026</span>
+                <span class="present">1 000 000 ₽</span>
+              </li>
+              <li>
+                <span class="name">Олег ф.</span>
+                <span class="email">em******ail@gmail.com</span>
+                <span class="date">31.09.2026</span>
+                <span class="present">Виртуальная карта «МИР» 3 000 ₽</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!--FOOTER-->
@@ -220,6 +330,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/forms.js" type="module" defer></script>
     <script src="./assets/js/scripts.js" type="module" defer></script>
   </body>
 </html>

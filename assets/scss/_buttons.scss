@@ -105,6 +105,10 @@
     pointer-events: none;
   }
 
+  &.full {
+    width: 100%;
+  }
+
   &.small {
     height: 44px;
     border: 2px solid var(--brown);
