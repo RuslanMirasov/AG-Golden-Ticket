@@ -149,9 +149,9 @@
       span {
         font-size: 57px;
 
-        @media (hover: none) and (pointer: coarse) {
-          padding-top: 0.3em;
-        }
+        // @media (hover: none) and (pointer: coarse) {
+        //   padding-top: 0.3em;
+        // }
       }
     }
   }
@@ -167,6 +167,14 @@
     max-width: 304px;
     br {
       display: none;
+    }
+  }
+}
+
+body.is-mobil {
+  .plashka {
+    span {
+      padding-top: 0.3em;
     }
   }
 }

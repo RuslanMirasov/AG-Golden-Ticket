@@ -51,3 +51,11 @@ export const initNavigationMenu = () => {
   if (burger) burger.addEventListener('click', toggleMenu);
   menuLinks.forEach(link => link.addEventListener('click', toggleMenu));
 };
+
+export const applyIsMobilClass = () => {
+  const isTouchDevice = matchMedia('(hover: none)').matches && matchMedia('(pointer: coarse)').matches;
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  if (isTouchDevice || isSafari) {
+    document.body.classList.add('is-mobil');
+  }
+};
