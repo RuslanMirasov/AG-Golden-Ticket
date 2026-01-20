@@ -29,14 +29,7 @@
   .swiper {
     overflow: visible;
   }
-  // .arrow {
-  //   &[data-arrow-prev] {
-  //     transform: translate(-50%, -100%);
-  //   }
-  //   &[data-arrow-next] {
-  //     transform: translate(50%, -100%);
-  //   }
-  // }
+
   @media (min-width: 768px) {
     .arrow {
       display: none;
@@ -111,7 +104,7 @@
   .plashka {
     display: flex;
     position: relative;
-    top: -10px;
+    top: 0px;
     width: 298px;
     height: 128px;
     background: url('../img/svg/price.svg') no-repeat center center/cover;
@@ -122,7 +115,8 @@
     transform: rotate(-15deg);
 
     span {
-      display: block;
+      display: flex;
+      align-items: center;
       font-size: 80px;
       line-height: 1;
       color: transparent;
@@ -132,7 +126,7 @@
       background-image: linear-gradient(90deg, #540800, #b13c1a, #520903);
       background-clip: text;
       -webkit-background-clip: text;
-      padding: 0.5rem;
+      padding: 0px 5px;
     }
   }
   &:before {
@@ -154,6 +148,10 @@
       height: 98px;
       span {
         font-size: 57px;
+
+        @media (hover: none) and (pointer: coarse) {
+          padding-top: 0.3em;
+        }
       }
     }
   }
