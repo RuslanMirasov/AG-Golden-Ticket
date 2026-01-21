@@ -52,7 +52,7 @@
               <span>email@mail.com</span>
             </p>
 
-            <button type="button" class="button-gradient"><span>зарегистрировать код</span></button>
+            <button type="button" class="button-gradient" data-popup-open="code-activation"><span>зарегистрировать код</span></button>
           </div>
         </div>
       </section>
@@ -126,7 +126,7 @@
                     </div>
                     <p class="prize__text">Виртуальная карта «МИР» <br />номиналом 1&nbsp;000 рублей</p>
                   </div>
-                  <button class="button button--green"><span>Как получить?</span></button>
+                  <button class="button button--green" data-popup-open="prize-1000"><span>Как получить?</span></button>
                 </div>
                 <!--prize 2-->
                 <div class="swiper-slide">
@@ -138,7 +138,7 @@
                     </div>
                     <p class="prize__text">Виртуальная карта «МИР» <br />номиналом 3&nbsp;000 рублей</p>
                   </div>
-                  <button class="button button--green"><span>Загрузить фото билета</span></button>
+                  <button class="button button--green" data-popup-open="prize-3000"><span>Как получить?</span></button>
                 </div>
                 <!--prize 3-->
                 <div class="swiper-slide">
@@ -150,7 +150,7 @@
                     </div>
                     <p class="prize__text">15&nbsp;000 <br />рублей</p>
                   </div>
-                  <button class="button button--green"><span>Загрузить фото билета</span></button>
+                  <button class="button button--green" data-popup-open="congratulations-15000"><span>Загрузить фото билета</span></button>
                 </div>
                 <!--prize 4-->
                 <div class="swiper-slide">
@@ -162,7 +162,7 @@
                     </div>
                     <p class="prize__text">50&nbsp;000 <br />рублей</p>
                   </div>
-                  <button class="button button--green"><span>Как получить?</span></button>
+                  <button class="button button--green" data-popup-open="congratulations-50000"><span>Загрузить фото билета</span></button>
                 </div>
                 <!--prize 5-->
                 <div class="swiper-slide">
@@ -174,7 +174,7 @@
                     </div>
                     <p class="prize__text">1&nbsp;000&nbsp;000 <br />рублей</p>
                   </div>
-                  <button class="button button--green"><span>Как получить?</span></button>
+                  <button class="button button--green" data-popup-open="congratulations-1000000"><span>Загрузить фото билета</span></button>
                 </div>
               </div>
             </div>
@@ -203,6 +203,340 @@
         </p>
       </div>
     </footer>
+
+    <!--POPUPS-->
+    <div class="backdrop" data-backdrop>
+      <div class="popup" data-popup>
+        <!--LOGIN POPUP-->
+        <div class="popup-content" id="login" data-tabs="login-tabs">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">
+            <a data-tab-link="2">Регистрация</a>
+            |
+            <a data-tab-link="1">Вход</a>
+          </h2>
+          <!--Login tab-->
+          <div data-tab="1">
+            <form action="#" class="form" novalidate onsubmit="">
+              <span class="inputError"></span>
+
+              <label class="label">
+                <input type="email" name="email" class="input" placeholder="ВАШ E-MAIL" required />
+              </label>
+
+              <label class="label">
+                <input type="password" name="password" class="input" placeholder="ПАРОЛЬ" required />
+              </label>
+
+              <button type="button" class="popup__text small w900" data-popup-open="password-forget">Забыли пароль?</button>
+
+              <button type="submit" class="button"><span>Отправить</span></button>
+            </form>
+          </div>
+
+          <!--Registration tab-->
+          <div data-tab="2">
+            <script>
+              //Логика отправки формы регистрации
+              const registrationFormSend = e => {
+                e.preventDefault();
+                popup.open('registration-success');
+              };
+            </script>
+
+            <form action="#" class="form" novalidate onsubmit="registrationFormSend(event)">
+              <span class="inputError"></span>
+              <label class="label">
+                <input type="text" name="surname" class="input" placeholder="ФАМИЛИЯ" required="" />
+              </label>
+              <label class="label">
+                <input type="text" name="name" class="input" placeholder="ИМЯ" required="" />
+              </label>
+              <label class="label">
+                <input type="text" name="middlename" class="input" placeholder="ОТЧЕСТВО" required="" />
+              </label>
+              <label class="label">
+                <input type="email" name="email" class="input" placeholder="ВАШ E-MAIL" required="" />
+              </label>
+              <fieldset class="fieldset">
+                <label class="label label--checkbox">
+                  <input type="checkbox" name="agree_rules" class="checkbox" placeholder="Согласие с ПРАВИЛАМИ РЕКЛАМНОЙ АКЦИИ" required />
+                  <span class="label__text">Я принимаю <a href="./assets/pdf/rules.pdf" target="_blank">правила рекламной акции</a></span>
+                </label>
+                <label class="label label--checkbox">
+                  <input type="checkbox" name="agree2" class="checkbox" placeholder="Согласие на ОБРАБОТКУ МОИХ ПЕРСОНАЛЬНЫХ ДАННЫХ" required />
+                  <span class="label__text">
+                    Я согласна/ен на <a href="./assets/pdf/data-policy .pdf" target="_blank">обработку моих персональных данных</a>
+                  </span>
+                </label>
+              </fieldset>
+              <button type="submit" class="button"><span>Далее</span></button>
+            </form>
+          </div>
+        </div>
+
+        <!--REGISTRATION SUCCESS POPUP-->
+        <div class="popup-content" id="registration-success">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Регистрация</h2>
+          <p class="popup__text small w600">Пароль для входа в&nbsp;личный кабинет отправлен на&nbsp;e-mail, указанный Вами при&nbsp;регистрации</p>
+          <button type="button" class="button" data-popup-open="login" onclick="changeTab('login-tabs', '1')"><span>Войти</span></button>
+        </div>
+
+        <!--PASSWORD FORGET POPUP-->
+        <div class="popup-content" id="password-forget">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Восстановление пароля</h2>
+
+          <script>
+            //Логика отправки формы восстановления пароля
+            const passwordForgetSend = e => {
+              e.preventDefault();
+              popup.open('password-forget-success');
+            };
+          </script>
+
+          <form action="#" class="form" novalidate onsubmit="passwordForgetSend(event)">
+            <span class="inputError"></span>
+            <label class="label">
+              <input type="email" name="email" class="input" placeholder="ВАШ E-MAIL" required />
+            </label>
+            <button type="submit" class="button"><span>Отправить</span></button>
+          </form>
+        </div>
+
+        <!--PASSWORD FORGET SUCCESS POPUP-->
+        <div class="popup-content" id="password-forget-success">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Восстановление пароля</h2>
+          <p class="popup__text">Новый пароль выслан<br />на указанный e-mail.</p>
+          <button type="button" class="button" data-popup-open="login" onclick="changeTab('login-tabs', '1')"><span>Войти</span></button>
+        </div>
+
+        <!--CODE ACTIVATION POPUP-->
+        <div class="popup-content" id="code-activation">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2" data-popup-title="Активируйте код">Активируйте код</h2>
+
+          <script>
+            const codeActivationFormSend = e => {
+              e.preventDefault();
+
+              // ставим статус загрузки и открываем всплывашку
+              setPopup('code-activation-process', { status: 'loading' });
+              popup.open('code-activation-process');
+
+              // проверяем правильный ли код ()
+              const currentCode = '12345';
+              const formData = new FormData(e.target);
+              const code = formData.get('code');
+              const isCodeCurrent = currentCode === code;
+
+              // если код правильный меняем статус, если нет, меняем заголовок и устанавливаем текст ошибки в code-activation и открываем code-activation
+              setTimeout(() => {
+                if (isCodeCurrent) {
+                  popup.open('code-activation-process', { status: 'success' });
+                } else {
+                  popup.open('code-activation', {
+                    title: 'Код не активирован',
+                    error: 'Введенный код неправильный. Проверьте вводимые Вами символы и попробуйте еще раз.',
+                  });
+                }
+              }, 2000);
+            };
+          </script>
+
+          <form action="#" class="form" novalidate onsubmit="codeActivationFormSend(event)">
+            <span class="inputError" data-popup-error></span>
+            <label class="label">
+              <input type="text" name="code" class="input" placeholder="ВВЕДИТЕ КОД" required />
+            </label>
+            <button type="submit" class="button"><span>Активировать</span></button>
+          </form>
+        </div>
+
+        <!--CODE ACTIVATION PROCESS POPUP-->
+        <div class="popup-content" id="code-activation-process">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Активируем код</h2>
+          <!--классы для смены картинки статуса (loading/success/rejected/error/moderation)-->
+          <div class="popup-status loading" data-popup-status="loading"></div>
+        </div>
+
+        <!--HOW TO GET POPUP-->
+        <div class="popup-content" id="how-to-get">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h3">Как активировать?</h2>
+          <p class="popup__text w600">Карту можно активировать <a href="https://mygift.ru/b2c" target="_blank">на&nbsp;сайте</a>.</p>
+          <p class="popup__text">Введите свой номер телефона и&nbsp;код активации, который Вы скопировали в&nbsp;личном кабинете.</p>
+          <p class="popup__text w600">Срок действия виртуальной карты до&nbsp;февраля&nbsp;2027г.</p>
+        </div>
+
+        <!--CONGRATULATIONS POPUP 1000 ₽-->
+        <div class="popup-content" id="congratulations-1000">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Поздравляем!</h2>
+          <p class="popup__text">Ваш приз</p>
+          <div class="prize-price minify">
+            <div class="plashka">
+              <span>1 000 ₽</span>
+            </div>
+          </div>
+          <p class="popup__text w900">Виртуальная подарочная карта <br />myGift «МИР» номиналом 1&nbsp;000&nbsp;рублей.</p>
+          <p class="popup__text">
+            Для получения приза пришлите читаемые фотографии выигрышного золотого билета и&nbsp;кода на&nbsp;нем, а&nbsp;также фотографии упаковки
+            продукции, в&nbsp;которой был найден билет.
+          </p>
+          <button type="button" class="button" data-popup-open="upload-photo"><span>Загрузить фото</span></button>
+        </div>
+
+        <!--CONGRATULATIONS POPUP 3000 ₽-->
+        <div class="popup-content" id="congratulations-3000">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Поздравляем!</h2>
+          <p class="popup__text">Ваш приз</p>
+          <div class="prize-price minify">
+            <div class="plashka">
+              <span>3 000 ₽</span>
+            </div>
+          </div>
+          <p class="popup__text w900">Виртуальная подарочная карта <br />myGift «МИР» номиналом 3&nbsp;000&nbsp;рублей.</p>
+          <p class="popup__text">
+            Для получения приза пришлите читаемые фотографии выигрышного золотого билета и&nbsp;кода на&nbsp;нем, а&nbsp;также фотографии упаковки
+            продукции, в&nbsp;которой был найден билет.
+          </p>
+          <button type="button" class="button" data-popup-open="upload-photo"><span>Загрузить фото</span></button>
+        </div>
+
+        <!--CONGRATULATIONS POPUP 15000 ₽-->
+        <div class="popup-content" id="congratulations-15000">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Поздравляем!</h2>
+          <p class="popup__text">Ваш приз</p>
+          <div class="prize-price minify">
+            <div class="plashka">
+              <span>15 000 ₽</span>
+            </div>
+          </div>
+          <p class="popup__text w900">Виртуальная подарочная карта <br />myGift «МИР» номиналом 15&nbsp;000&nbsp;рублей.</p>
+          <p class="popup__text">
+            Для получения приза пришлите читаемые фотографии выигрышного золотого билета и&nbsp;кода на&nbsp;нем, а&nbsp;также фотографии упаковки
+            продукции, в&nbsp;которой был найден билет.
+          </p>
+          <button type="button" class="button" data-popup-open="upload-photo"><span>Загрузить фото</span></button>
+        </div>
+
+        <!--CONGRATULATIONS POPUP 50000 ₽-->
+        <div class="popup-content" id="congratulations-50000">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Поздравляем!</h2>
+          <p class="popup__text">Ваш приз</p>
+          <div class="prize-price minify">
+            <div class="plashka">
+              <span>50 000 ₽</span>
+            </div>
+          </div>
+          <p class="popup__text">
+            Для получения приза пришлите читаемые фотографии выигрышного золотого билета и&nbsp;кода на&nbsp;нем, а&nbsp;также фотографии упаковки
+            продукции, в&nbsp;которой был найден билет.
+          </p>
+          <button type="button" class="button" data-popup-open="upload-photo"><span>Загрузить фото</span></button>
+        </div>
+
+        <!--CONGRATULATIONS POPUP 1000000 ₽-->
+        <div class="popup-content" id="congratulations-1000000">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Поздравляем!</h2>
+          <p class="popup__text">Ваш приз</p>
+          <div class="prize-price minify">
+            <div class="plashka">
+              <span>1 000 000 ₽</span>
+            </div>
+          </div>
+          <p class="popup__text">
+            Для получения приза пришлите читаемые фотографии выигрышного золотого билета и&nbsp;кода на&nbsp;нем, а&nbsp;также фотографии упаковки
+            продукции, в&nbsp;которой был найден билет.
+          </p>
+          <button type="button" class="button" data-popup-open="upload-photo"><span>Загрузить фото</span></button>
+        </div>
+
+        <!--PRIZE POPUP 1000 ₽-->
+        <div class="popup-content" id="prize-1000">
+          <button class="popup-close" data-popup-close></button>
+          <div class="prize-horisontal">
+            <div class="prize-price minify">
+              <div class="plashka">
+                <span>1 000 ₽</span>
+              </div>
+            </div>
+            <h2 class="title title--h3">Виртуальная карта myGift «МИР» 1&nbsp;000&nbsp;рублей</h2>
+            <button type="button" class="button small" data-popup-open="how-to-get"><span>Как активировать?</span></button>
+          </div>
+
+          <button type="button" class="to-clipbord" data-copy-clipbord>
+            <span>n5d4f54f5</span>
+          </button>
+        </div>
+
+        <!--PRIZE POPUP 3000 ₽-->
+        <div class="popup-content" id="prize-3000">
+          <button class="popup-close" data-popup-close></button>
+          <div class="prize-horisontal">
+            <div class="prize-price minify">
+              <div class="plashka">
+                <span>3 000 ₽</span>
+              </div>
+            </div>
+            <h2 class="title title--h3">Виртуальная карта myGift «МИР» 3&nbsp;000&nbsp;рублей</h2>
+            <button type="button" class="button small" data-popup-open="how-to-get"><span>Как активировать?</span></button>
+          </div>
+
+          <button type="button" class="to-clipbord" data-copy-clipbord>
+            <span>n5d4f54f5</span>
+          </button>
+        </div>
+
+        <!--STATUS MODERATION POPUP -->
+        <div class="popup-content" id="status-moderation">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">На модерации</h2>
+          <div class="popup-status moderation"></div>
+          <p class="popup__text">Фотография проходит модерацию<br />в&nbsp;течение 5&nbsp;дней.</p>
+        </div>
+
+        <!--STATUS ERROR POPUP -->
+        <div class="popup-content" id="status-error">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Ошибка фото</h2>
+          <div class="popup-status error"></div>
+          <p class="popup__text">Файл не&nbsp;является изображением <br />или размер превышает 10&nbsp;Мб. <br />Загрузите фотографии снова.</p>
+          <button type="button" class="button" data-popup-open="upload-photo"><span>Загрузить повторно</span></button>
+        </div>
+
+        <!--STATUS REJECTED POPUP -->
+        <div class="popup-content" id="status-rejected">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Билет отклонен</h2>
+          <div class="popup-status rejected"></div>
+          <p class="popup__text">
+            Свяжитесь с нами <br />
+            <a href="mailto:5@support-promo.ru"> <b>5@support-promo.ru</b> </a>
+          </p>
+        </div>
+
+        <!--UPLOAD PHOTO POPUP -->
+        <div class="popup-content" id="upload-photo">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Загрузить фото</h2>
+          <p class="popup__text">Загрузите фото золотого билета <br />и&nbsp;упаковки Alpen Gold</p>
+          <form action="#" class="form" novalidate>
+            <span class="inputError"></span>
+
+            <button type="submit" class="button" disabled><span>Готово</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./../assets/js/forms.js" type="module" defer></script>

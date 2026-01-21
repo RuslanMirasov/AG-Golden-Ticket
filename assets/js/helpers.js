@@ -67,3 +67,63 @@ export const applyIsMobilClass = () => {
   window.addEventListener('resize', check);
   window.addEventListener('orientationchange', check);
 };
+
+export const initCopyClipboard = () => {
+  const elements = document.querySelectorAll('[data-copy-clipbord]');
+
+  if (!elements.length) return;
+
+  elements.forEach(el => {
+    el.addEventListener('click', async () => {
+      const text = el.innerText.trim();
+      if (!text) return;
+
+      try {
+        await navigator.clipboard.writeText(text);
+        showCopyNotification();
+      } catch (err) {
+        console.warn('Ошибка копирования:', err);
+      }
+    });
+  });
+};
+
+function showCopyNotification() {
+  const notification = document.createElement('div');
+  notification.textContent = 'Скопировано в буфер обмена';
+  notification.classList.add('notify');
+
+  // Object.assign(notification.style, {
+  //   position: 'fixed',
+  //   bottom: '24px',
+  //   left: '50%',
+  //   transform: 'translateX(-50%)',
+  //   padding: '14px 24px',
+  //   background: 'var(--yellow)',
+  //   border: '2px solid var(--brown)',
+  //   fontFamily: 'var(--font)',
+  //   fontWidth: '900',
+  //   color: 'var(--brown)',
+  //   fontSize: '15px',
+  //   borderRadius: '50px',
+  //   zIndex: '9999',
+  //   opacity: '0',
+  //   transition: 'opacity 0.3s ease',
+  // });
+
+  document.body.appendChild(notification);
+
+  requestAnimationFrame(() => {
+    notification.style.opacity = '1';
+    notification.style.transform = 'translate(-50%, 0%)';
+  });
+
+  setTimeout(() => {
+    notification.style.opacity = '0';
+    notification.style.transform = 'translate(-50%, 150%)';
+
+    setTimeout(() => {
+      notification.remove();
+    }, 300);
+  }, 2000);
+}

@@ -1,118 +1,4 @@
-// const ANIMATION_DILAY = 300;
-
-// const initTabsState = tabsList => {
-//   tabsList.forEach(tabs => {
-//     const tabsName = tabs.getAttribute('data-tabs');
-//     const STORAGE_KEY = tabsName ? `tabs:${tabsName}` : null;
-
-//     let activeNumber = '1';
-
-//     if (STORAGE_KEY) {
-//       const saved = sessionStorage.getItem(STORAGE_KEY);
-//       if (saved) {
-//         activeNumber = saved;
-//       }
-//     }
-
-//     const targetTabs = tabs.querySelectorAll(`[data-tab="${activeNumber}"]`);
-
-//     if (!targetTabs.length) {
-//       activeNumber = '1';
-//     }
-
-//     const allButtons = tabs.querySelectorAll('[data-tab-link]');
-//     const allTabs = tabs.querySelectorAll('[data-tab]');
-
-//     allButtons.forEach(btn => btn.classList.remove('active'));
-//     allTabs.forEach(tab => {
-//       tab.classList.remove('active');
-//       tab.style.opacity = '0';
-//     });
-
-//     tabs.querySelectorAll(`[data-tab-link="${activeNumber}"]`).forEach(btn => btn.classList.add('active'));
-
-//     tabs.querySelectorAll(`[data-tab="${activeNumber}"]`).forEach(tab => {
-//       tab.classList.add('active');
-//       tab.style.opacity = '1';
-//     });
-
-//     if (STORAGE_KEY) {
-//       sessionStorage.setItem(STORAGE_KEY, activeNumber);
-//     }
-//   });
-// };
-
-// export const initTabs = () => {
-//   const tabsList = document.querySelectorAll('[data-tabs]');
-//   if (!tabsList.length) return;
-
-//   initTabsState(tabsList);
-
-//   tabsList.forEach(tabs => {
-//     const tabsName = tabs.getAttribute('data-tabs');
-//     const STORAGE_KEY = tabsName ? `tabs:${tabsName}` : null;
-
-//     let isAnimating = false;
-//     let timers = [];
-
-//     const clearTimers = () => {
-//       timers.forEach(t => clearTimeout(t));
-//       timers = [];
-//     };
-
-//     const handleTabsClick = e => {
-//       if (isAnimating) return;
-
-//       const target = e.target.closest('[data-tab-link]');
-//       if (!target || !tabs.contains(target)) return;
-
-//       const activeButton = tabs.querySelector('[data-tab-link].active');
-//       if (target === activeButton) return;
-
-//       const number = target.dataset.tabLink;
-
-//       const targetButtons = tabs.querySelectorAll(`[data-tab-link="${number}"]`);
-//       const activeTabs = tabs.querySelectorAll('[data-tab].active');
-//       const targetTabs = tabs.querySelectorAll(`[data-tab="${number}"]`);
-
-//       if (!targetTabs.length) return;
-
-//       if (STORAGE_KEY) {
-//         sessionStorage.setItem(STORAGE_KEY, number);
-//       }
-
-//       isAnimating = true;
-//       clearTimers();
-
-//       activeButton?.classList.remove('active');
-//       targetButtons.forEach(btn => btn.classList.add('active'));
-
-//       activeTabs.forEach(tab => {
-//         tab.style.opacity = '0';
-//       });
-
-//       timers.push(
-//         setTimeout(() => {
-//           activeTabs.forEach(tab => tab.classList.remove('active'));
-//           targetTabs.forEach(tab => tab.classList.add('active'));
-//         }, ANIMATION_DILAY)
-//       );
-
-//       timers.push(
-//         setTimeout(() => {
-//           targetTabs.forEach(tab => {
-//             tab.style.opacity = '1';
-//           });
-//           isAnimating = false;
-//         }, ANIMATION_DILAY)
-//       );
-//     };
-
-//     tabs.addEventListener('click', handleTabsClick);
-//   });
-// };
-
-const ANIMATION_DELAY = 300;
+const ANIMATION_DELAY = 200;
 
 /* --------------------------------------------------
    ЕДИНАЯ ФУНКЦИЯ СМЕНЫ / УСТАНОВКИ ТАБА
@@ -230,7 +116,7 @@ export const initTabs = () => {
 
       setTimeout(() => {
         isAnimating = false;
-      }, ANIMATION_DELAY);
+      }, ANIMATION_DELAY + 10);
     });
   });
 };

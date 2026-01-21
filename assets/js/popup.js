@@ -1,3 +1,48 @@
+export const setPopup = (id, data) => {
+  const popup = document.getElementById(id);
+  if (!popup) return;
+
+  const titleEl = popup.querySelector('[data-popup-title]');
+  const textEl = popup.querySelector('[data-popup-text]');
+  const statusEl = popup.querySelector('[data-popup-status]');
+  const errorEl = popup.querySelector('[data-popup-error]');
+
+  if (titleEl) {
+    if (data?.title) {
+      titleEl.innerHTML = data?.title;
+    } else {
+      titleEl.innerHTML = titleEl.dataset.popupTitle;
+    }
+  }
+
+  if (textEl) {
+    if (data.text) {
+      textEl.innerHTML = data.text;
+    } else {
+      textEl.innerHTML = textEl.dataset.popupText;
+    }
+  }
+
+  if (statusEl) {
+    statusEl.classList.remove('loading', 'success', 'rejected', 'error', 'moderation');
+    if (data?.status) {
+      statusEl.classList.add(data?.status);
+    } else {
+      statusEl.classList.add(statusEl.dataset.popupStatus);
+    }
+  }
+
+  if (errorEl) {
+    if (data?.error) {
+      errorEl.innerHTML = data?.error;
+      errorEl.classList.add('active');
+    } else {
+      errorEl.innerHTML = '';
+      errorEl.classList.remove('active');
+    }
+  }
+};
+
 export const popup = {
   _backdrop: null,
   _popup: null,
@@ -59,8 +104,11 @@ export const popup = {
     });
   },
 
-  async open(id) {
+  async open(id, data) {
     if (this._isOpening || this._isAnimating) return;
+
+    setPopup(id, data);
+
     this._isOpening = true;
 
     const newContent = this._popup.querySelector(`#${id}`);
@@ -75,11 +123,24 @@ export const popup = {
 
     const currentContent = this._popup.querySelector('.popup-content[style*="display: flex"]');
 
-    if (currentContent && currentContent !== newContent) {
+    const currentId = currentContent?.id;
+    if (currentId === id) {
+      this._isOpening = false;
+      return;
+    }
+
+    if (currentContent) {
       await this.close();
     }
 
     const alreadyVisible = this._popup.classList.contains('visible');
+    const isFreez = newContent.hasAttribute('data-freez');
+
+    this._backdrop.classList.remove('freez');
+
+    if (isFreez) {
+      this._backdrop.classList.add('freez');
+    }
 
     if (alreadyVisible) {
       await this._switchContent(newContent);
@@ -97,6 +158,7 @@ export const popup = {
 
     this._popup.classList.remove('visible');
     this._backdrop.classList.remove('active');
+    this._backdrop.classList.remove('freez');
     document.body.classList.remove('locked');
 
     await this._waitForTransition(this._backdrop);
@@ -123,7 +185,7 @@ export const popup = {
       }
 
       const isCloseTarget = e.target === this._backdrop || e.target.hasAttribute('data-popup-close');
-      if (isCloseTarget) {
+      if (isCloseTarget && !this._backdrop.classList.contains('freez')) {
         this.close();
       }
     });
@@ -132,7 +194,7 @@ export const popup = {
       if ((this._isOpening || this._isAnimating) && e.key === 'Escape') {
         return;
       }
-      if (e.key === 'Escape') {
+      if (e.key === 'Escape' && !this._backdrop.classList.contains('freez')) {
         this.close();
       }
     });

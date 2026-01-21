@@ -131,6 +131,9 @@
       }
       &.swiper-slide-active + .swiper-slide {
         opacity: 1;
+        @media (max-width: 767px) {
+          opacity: 0;
+        }
       }
       &.swiper-slide-active + .swiper-slide + .swiper-slide {
         opacity: 1;

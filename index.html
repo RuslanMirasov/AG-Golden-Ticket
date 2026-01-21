@@ -56,7 +56,7 @@
               <div class="text">
                 <h2 class="hero-white-title">НАШЛИ БИЛЕТ?<br />РЕГИСТРИРУЙТЕ КОД ЗДЕСЬ!</h2>
                 <img src="./assets/img/hero/shokolad-back.webp" alt="Alpen gold" class="shokolad-back" />
-                <button type="button" class="button">
+                <button type="button" class="button" data-popup-open="code-activation">
                   <span>зарегистрировать<br />код</span>
                 </button>
               </div>
@@ -444,6 +444,56 @@
           <h2 class="title title--h2">Восстановление пароля</h2>
           <p class="popup__text">Новый пароль выслан<br />на указанный e-mail.</p>
           <button type="button" class="button" data-popup-open="login" onclick="changeTab('login-tabs', '1')"><span>Войти</span></button>
+        </div>
+
+        <!--CODE ACTIVATION POPUP-->
+        <div class="popup-content" id="code-activation">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2" data-popup-title="Активируйте код">Активируйте код</h2>
+
+          <script>
+            const codeActivationFormSend = e => {
+              e.preventDefault();
+
+              // ставим статус загрузки и открываем всплывашку
+              setPopup('code-activation-process', { status: 'loading' });
+              popup.open('code-activation-process');
+
+              // проверяем правильный ли код ()
+              const currentCode = '12345';
+              const formData = new FormData(e.target);
+              const code = formData.get('code');
+              const isCodeCurrent = currentCode === code;
+
+              // если код правильный меняем статус, если нет, меняем заголовок и устанавливаем текст ошибки в code-activation и открываем code-activation
+              setTimeout(() => {
+                if (isCodeCurrent) {
+                  popup.open('code-activation-process', { status: 'success' });
+                } else {
+                  popup.open('code-activation', {
+                    title: 'Код не активирован',
+                    error: 'Введенный код неправильный. Проверьте вводимые Вами символы и попробуйте еще раз.',
+                  });
+                }
+              }, 2000);
+            };
+          </script>
+
+          <form action="#" class="form" novalidate onsubmit="codeActivationFormSend(event)">
+            <span class="inputError" data-popup-error></span>
+            <label class="label">
+              <input type="text" name="code" class="input" placeholder="ВВЕДИТЕ КОД" required />
+            </label>
+            <button type="submit" class="button"><span>Активировать</span></button>
+          </form>
+        </div>
+
+        <!--CODE ACTIVATION PROCESS POPUP-->
+        <div class="popup-content" id="code-activation-process">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Активируем код</h2>
+          <!--классы для смены картинки статуса (loading/success/rejected/error/moderation)-->
+          <div class="popup-status loading" data-popup-status="loading"></div>
         </div>
       </div>
     </div>

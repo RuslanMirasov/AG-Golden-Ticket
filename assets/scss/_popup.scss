@@ -132,18 +132,16 @@ $popup_transition: 0.5s;
     margin: 0 auto;
   }
 
-  @media (max-width: 1279px) {
-    max-width: 600px;
-  }
-
   @media (max-width: 767px) {
     gap: 20px;
     max-width: 320px;
     padding: 30px 20px 20px 20px;
     border-radius: 10px;
 
-    .title.title--h2 {
+    .title.title--h2,
+    .title.title--h3 {
       font-size: 20px;
+      line-height: 1.2;
     }
 
     .button {
@@ -158,16 +156,31 @@ $popup_transition: 0.5s;
   display: block;
   width: 100%;
   margin: 0 auto;
-  font-size: 33px;
+  font-size: 32px;
   line-height: 1.1;
   font-weight: 400;
   font-family: var(--font);
+  a {
+    display: inline;
+    text-decoration: underline;
+    transition: color 0.3s;
+    @media (hover: hover) {
+      &:hover {
+        color: var(--yellow);
+      }
+    }
+  }
+
   &.small {
     font-size: 30px;
   }
 
   &.w900 {
     font-weight: 900;
+  }
+
+  &.w600 {
+    font-weight: 600;
   }
 
   &.w700 {
@@ -177,8 +190,186 @@ $popup_transition: 0.5s;
 
   @media (max-width: 767px) {
     font-size: 16px;
+    br {
+      display: none;
+    }
     &.small {
       font-size: 16px;
+    }
+  }
+}
+
+.popup-status {
+  display: block;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  @media (max-width: 767px) {
+    width: 100px;
+    height: 100px;
+  }
+
+  &.loading {
+    background: url('../img/popup/preloader.gif') no-repeat center center/cover;
+  }
+  &.success {
+    background: url('../img/popup/accept.webp') no-repeat center center/cover;
+  }
+  &.rejected {
+    background: url('../img/popup/rejected.webp') no-repeat center center/cover;
+  }
+  &.error {
+    background: url('../img/popup/error.webp') no-repeat center center/contain;
+  }
+  &.moderation {
+    background: url('../img/popup/moderation.webp') no-repeat center center/cover;
+  }
+}
+
+#code-activation-process {
+  .popup-status {
+    margin: 50px auto 70px auto;
+    @media (max-width: 767px) {
+      margin: 20px auto 30px auto;
+    }
+  }
+}
+
+.to-clipbord {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 70px;
+  border-radius: 70px;
+  border: 2px solid var(--brown);
+  cursor: pointer;
+  user-select: text;
+
+  span {
+    font-size: 30px;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url('../img/svg/copy.svg') no-repeat center center/contain;
+  }
+
+  @media (max-width: 767px) {
+    height: 42px;
+    span {
+      font-size: 24px;
+    }
+    &:after {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.notify {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 150%);
+  padding: 14px 24px;
+  font-family: var(--font);
+  background: var(--yellow);
+  border: 2px solid var(--brown);
+  font-weight: 900;
+  color: var(--brown);
+  font-size: 15px;
+  border-radius: 50px;
+  z-index: 9999;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  white-space: nowrap;
+
+  @media (max-width: 767px) {
+    bottom: 20px;
+    padding: 12px 20px;
+    border: 1px solid var(--brown);
+    font-size: 12px;
+  }
+}
+
+.prize-horisontal {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding-right: 260px;
+
+  .prize-price {
+    position: absolute;
+    right: 0px;
+    width: 240px;
+    height: 100px;
+    span {
+      font-size: 64px;
+    }
+  }
+
+  .title {
+    text-align: left;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .button {
+    min-height: 58px;
+    padding: 20px 50px;
+    border: 2px solid var(--brown);
+    margin: 30px auto 0px 0px;
+    span {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding-right: 120px;
+
+    .prize-price {
+      width: 108px;
+      height: 44px;
+      top: 8px;
+      span {
+        font-size: 30px;
+      }
+    }
+
+    .title.title--h3 {
+      font-size: 12px;
+    }
+
+    .button {
+      min-height: 30px;
+      padding: 8px 24px;
+      margin: 20px auto -10px 0px;
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+#status-error {
+  @media (max-width: 767px) {
+    .button {
+      span {
+        font-size: 13px;
+      }
     }
   }
 }

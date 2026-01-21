@@ -129,6 +129,21 @@
       padding: 0px 5px;
     }
   }
+
+  &.minify {
+    display: inline-flex;
+    width: 298px;
+    height: 128px;
+    border-radius: 0px;
+    background: none;
+    .plashka {
+      width: 100%;
+      height: 100%;
+      background: url('../img/svg/price2.svg') no-repeat center center/cover;
+      transform: rotate(-0deg);
+    }
+  }
+
   &:before {
     content: '';
     display: block;
@@ -140,18 +155,25 @@
     background: url('../img/shadow.webp') no-repeat center bottom;
     background-size: 100% auto;
   }
-  @media (max-width: 1279px) {
+
+  @media (max-width: 767px) {
     width: 164px;
     height: 164px;
+    &.minify {
+      width: 144px;
+      height: 62px;
+      margin: -5px auto;
+      .plashka {
+        span {
+          font-size: 32px;
+        }
+      }
+    }
     .plashka {
       width: 232px;
       height: 98px;
       span {
         font-size: 57px;
-
-        // @media (hover: none) and (pointer: coarse) {
-        //   padding-top: 0.3em;
-        // }
       }
     }
   }

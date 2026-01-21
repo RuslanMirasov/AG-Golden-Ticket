@@ -1,30 +1,30 @@
 const validationRegEx = [
   {
-    type: 'tel',
-    regex: /^\+7\s\d{3}\s\d{3}-\d{2}-\d{2}$/,
-    error: 'Некорректный телефон',
-  },
-  {
     type: 'email',
     regex: /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/,
     error: 'Некорректный Email',
-  },
-  {
-    type: 'password',
-    name: 'password',
-    regex: /^(?=.*[A-Za-z])(?=.*\d).{6,}$/,
-    error: 'Некорректный пароль',
-  },
-  {
-    name: 'password2',
-    regex: /^(?=.*[A-Za-z])(?=.*\d).{6,}$/,
-    error: 'Некорректный пароль',
   },
   {
     name: 'name',
     regex: /^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ\s\-]+$/,
     error: 'Имя не может содержать цифры и спецсимволы',
   },
+  // {
+  //   type: 'tel',
+  //   regex: /^\+7\s\d{3}\s\d{3}-\d{2}-\d{2}$/,
+  //   error: 'Некорректный телефон',
+  // },
+  // {
+  //   type: 'password',
+  //   name: 'password',
+  //   regex: /^(?=.*[A-Za-z])(?=.*\d).{6,}$/,
+  //   error: 'Некорректный пароль',
+  // },
+  // {
+  //   name: 'password2',
+  //   regex: /^(?=.*[A-Za-z])(?=.*\d).{6,}$/,
+  //   error: 'Некорректный пароль',
+  // }
 ];
 
 const validateInput = input => {
