@@ -231,13 +231,16 @@
           <h2 class="title title--h2"><span>Обратная связь</span></h2>
 
           <script>
-            const toggleX = e => {
+            const callbackFormSend = e => {
               e.preventDefault();
-              console.log(e.target);
+              popup.open('code-activation-process', { title: 'Отправка', status: 'loading' });
+              setTimeout(() => {
+                popup.open('code-activation-process', { title: 'Сообщение отправлено!', status: 'success' });
+              }, 2000);
             };
           </script>
 
-          <form action="#" class="form form--white form--questions" novalidate onsubmit="toggleX(event)">
+          <form action="#" class="form form--white form--questions" novalidate onsubmit="callbackFormSend(event)">
             <span class="inputError"></span>
 
             <label class="label">
@@ -515,7 +518,7 @@
         <!--CODE ACTIVATION PROCESS POPUP-->
         <div class="popup-content" id="code-activation-process">
           <button class="popup-close" data-popup-close></button>
-          <h2 class="title title--h2">Активируем код</h2>
+          <h2 class="title title--h2" data-popup-title="Активируем код">Активируем код</h2>
           <!--классы для смены картинки статуса (loading/success/rejected/error/moderation)-->
           <div class="popup-status loading" data-popup-status="loading"></div>
         </div>
