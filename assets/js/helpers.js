@@ -53,9 +53,17 @@ export const initNavigationMenu = () => {
 };
 
 export const applyIsMobilClass = () => {
-  const isTouchDevice = matchMedia('(hover: none)').matches && matchMedia('(pointer: coarse)').matches;
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-  if (isTouchDevice || isSafari) {
-    document.body.classList.add('is-mobil');
-  }
+  const check = () => {
+    const isTouchDevice = matchMedia('(hover: none)').matches && matchMedia('(pointer: coarse)').matches;
+    const isSmallScreen = window.innerWidth < 1280;
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const shouldApply = (isTouchDevice && isSmallScreen) || isSafari;
+
+    document.body.classList.toggle('is-mobil', shouldApply);
+  };
+
+  check();
+
+  window.addEventListener('resize', check);
+  window.addEventListener('orientationchange', check);
 };

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#409045" />
+    <meta name="theme-color" content="#5c2e15" />
     <meta name="description" content="AG-Golden-Ticket" />
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -48,8 +48,10 @@
             <div class="hero-content">
               <img src="./assets/img/logo.svg" alt="Alpen gold" class="hero-logo" />
               <h1 class="title title--h1">
-                воОООот столько <br />
-                золотых билетов
+                <span>
+                  воОООот столько <br />
+                  золотых билетов
+                </span>
               </h1>
               <div class="text">
                 <h2 class="hero-white-title">НАШЛИ БИЛЕТ?<br />РЕГИСТРИРУЙТЕ КОД ЗДЕСЬ!</h2>
@@ -64,8 +66,8 @@
         <div class="hero-form">
           <div class="container">
             <img src="./assets/img/hero/shokolad-front.webp" alt="Alpen gold" class="shokolad-front" />
-            <h2 class="title title--h3 upper">А еще участвуйте в розыгрыше онлайн золотых билетов!</h2>
-            <button type="button" class="button" data-popup-open="online"><span>участвовать</span></button>
+            <h2 class="title title--h3 upper"><span>А еще участвуйте в розыгрыше онлайн золотых билетов!</span></h2>
+            <a href="https://actions.5ka.ru/gold2" class="button"><span>участвовать</span></a>
           </div>
         </div>
       </section>
@@ -73,7 +75,7 @@
       <!--SECTION PRIZES-->
       <section class="section section--prizes" id="prizes">
         <div class="container">
-          <h2 class="title title--h2">Призы</h2>
+          <h2 class="title title--h2"><span>Призы</span></h2>
 
           <div class="prizes" data-slider data-enabled="false,false,true">
             <div class="swiper">
@@ -144,7 +146,7 @@
       <!--SECTION PRODUCTS-->
       <section class="section section--products" id="products">
         <div class="container">
-          <h2 class="title title--h2">Товары-участники</h2>
+          <h2 class="title title--h2"><span>Товары-участники</span></h2>
 
           <div class="products" data-slider data-slides-per-view="5,3,1">
             <div class="swiper">
@@ -202,7 +204,7 @@
       <!--SECTION QUESTIONS-->
       <section class="section section--questions" id="questions">
         <div class="container">
-          <h2 class="title title--h2">Обратная связь</h2>
+          <h2 class="title title--h2"><span>Обратная связь</span></h2>
 
           <script>
             const toggleX = e => {
@@ -229,7 +231,9 @@
             <fieldset class="fieldset">
               <label class="label label--checkbox">
                 <input type="checkbox" name="agree" class="checkbox" placeholder="Согласие на обработку персональных данных" required />
-                <span class="label__text">Я согласна/ен на обработку персональных&nbsp;данных</span>
+                <span class="label__text">
+                  Я согласна/ен на <a href="./assets/pdf/data-policy .pdf" target="_blank">обработку персональных&nbsp;данных</a>
+                </span>
               </label>
             </fieldset>
 
@@ -241,12 +245,16 @@
       <!--SECTION WINNERS-->
       <section class="section section--winners" id="winners">
         <div class="container">
-          <h2 class="title title--h2">Победители</h2>
+          <h2 class="title title--h2"><span>Победители</span></h2>
 
           <form action="#" class="form form--white form--search" novalidate>
             <input type="text" name="search" class="input" required />
             <button type="submit" class="search-submit"></button>
           </form>
+
+          <!-- <div class="empty">
+            <b>Победителей пока нет</b>
+          </div> -->
 
           <div class="table-scroll-area">
             <ul class="table">
@@ -314,9 +322,9 @@
     <footer class="footer">
       <div class="container">
         <menu class="footer__menu">
-          <li><a href="#" target="_blank">Правила акции</a></li>
-          <li><a href="#" target="_blank">Политика конфиденциальности</a></li>
-          <li><a href="#" target="_blank">Политика в&nbsp;отношении обработки персональных&nbsp;данных</a></li>
+          <li><a href="./assets/pdf/rules.pdf" target="_blank">Правила акции</a></li>
+          <li><a href="./assets/pdf/privacy-policy .pdf" target="_blank">Политика конфиденциальности</a></li>
+          <li><a href="./assets/pdf/data-policy .pdf" target="_blank">Политика в&nbsp;отношении обработки персональных&nbsp;данных</a></li>
         </menu>
         <p class="copy">
           Сроки проведения акции, включая сроки выдачи призов, — с&nbsp;2&nbsp;февраля по&nbsp;15&nbsp;июля 2026&nbsp;г. Период покупок
@@ -328,6 +336,117 @@
         </p>
       </div>
     </footer>
+
+    <!--POPUPS-->
+    <div class="backdrop" data-backdrop>
+      <div class="popup" data-popup>
+        <!--LOGIN POPUP-->
+        <div class="popup-content" id="login" data-tabs="login-tabs">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">
+            <a data-tab-link="2">Регистрация</a>
+            |
+            <a data-tab-link="1">Вход</a>
+          </h2>
+          <!--Login tab-->
+          <div data-tab="1">
+            <form action="#" class="form" novalidate onsubmit="">
+              <span class="inputError"></span>
+
+              <label class="label">
+                <input type="email" name="email" class="input" placeholder="ВАШ E-MAIL" required />
+              </label>
+
+              <label class="label">
+                <input type="password" name="password" class="input" placeholder="ПАРОЛЬ" required />
+              </label>
+
+              <button type="button" class="popup__text small w900" data-popup-open="password-forget">Забыли пароль?</button>
+
+              <button type="submit" class="button"><span>Отправить</span></button>
+            </form>
+          </div>
+
+          <!--Registration tab-->
+          <div data-tab="2">
+            <script>
+              //Логика отправки формы регистрации
+              const registrationFormSend = e => {
+                e.preventDefault();
+                popup.open('registration-success');
+              };
+            </script>
+
+            <form action="#" class="form" novalidate onsubmit="registrationFormSend(event)">
+              <span class="inputError"></span>
+              <label class="label">
+                <input type="text" name="surname" class="input" placeholder="ФАМИЛИЯ" required="" />
+              </label>
+              <label class="label">
+                <input type="text" name="name" class="input" placeholder="ИМЯ" required="" />
+              </label>
+              <label class="label">
+                <input type="text" name="middlename" class="input" placeholder="ОТЧЕСТВО" required="" />
+              </label>
+              <label class="label">
+                <input type="email" name="email" class="input" placeholder="ВАШ E-MAIL" required="" />
+              </label>
+              <fieldset class="fieldset">
+                <label class="label label--checkbox">
+                  <input type="checkbox" name="agree_rules" class="checkbox" placeholder="Согласие с ПРАВИЛАМИ РЕКЛАМНОЙ АКЦИИ" required />
+                  <span class="label__text">Я принимаю <a href="./assets/pdf/rules.pdf" target="_blank">правила рекламной акции</a></span>
+                </label>
+                <label class="label label--checkbox">
+                  <input type="checkbox" name="agree2" class="checkbox" placeholder="Согласие на ОБРАБОТКУ МОИХ ПЕРСОНАЛЬНЫХ ДАННЫХ" required />
+                  <span class="label__text">
+                    Я согласна/ен на <a href="./assets/pdf/data-policy .pdf" target="_blank">обработку моих персональных данных</a>
+                  </span>
+                </label>
+              </fieldset>
+              <button type="submit" class="button"><span>Далее</span></button>
+            </form>
+          </div>
+        </div>
+
+        <!--REGISTRATION SUCCESS POPUP-->
+        <div class="popup-content" id="registration-success">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Регистрация</h2>
+          <p class="popup__text small w600">Пароль для входа в&nbsp;личный кабинет отправлен на&nbsp;e-mail, указанный Вами при&nbsp;регистрации</p>
+          <button type="button" class="button" data-popup-open="login" onclick="changeTab('login-tabs', '1')"><span>Войти</span></button>
+        </div>
+
+        <!--PASSWORD FORGET POPUP-->
+        <div class="popup-content" id="password-forget">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Восстановление пароля</h2>
+
+          <script>
+            //Логика отправки формы восстановления пароля
+            const passwordForgetSend = e => {
+              e.preventDefault();
+              popup.open('password-forget-success');
+            };
+          </script>
+
+          <form action="#" class="form" novalidate onsubmit="passwordForgetSend(event)">
+            <span class="inputError"></span>
+            <label class="label">
+              <input type="email" name="email" class="input" placeholder="ВАШ E-MAIL" required />
+            </label>
+            <button type="submit" class="button"><span>Отправить</span></button>
+          </form>
+        </div>
+
+        <!--PASSWORD FORGET SUCCESS POPUP-->
+        <div class="popup-content" id="password-forget-success">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Восстановление пароля</h2>
+          <p class="popup__text">Новый пароль выслан<br />на указанный e-mail.</p>
+          <button type="button" class="button" data-popup-open="login" onclick="changeTab('login-tabs', '1')"><span>Войти</span></button>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./assets/js/forms.js" type="module" defer></script>

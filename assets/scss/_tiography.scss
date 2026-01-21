@@ -8,16 +8,24 @@
   &.title--h1,
   &.title--h2,
   &.title--h3 {
-    background-image: linear-gradient(90deg, #fffcb6, #fade79, #f2d344);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    padding-bottom: 0.5rem;
-    margin-bottom: -0.5rem;
+    span {
+      display: inline-block;
+      width: auto;
+
+      background-image: linear-gradient(90deg, #fffcb6, #fade79, #f2d344);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      padding-bottom: 0.5rem;
+      margin-bottom: -0.5rem;
+    }
+
     @media (max-width: 767px) {
-      padding-bottom: 0.3rem;
-      margin-bottom: -0.3rem;
+      span {
+        padding-bottom: 0.3rem;
+        margin-bottom: -0.3rem;
+      }
     }
   }
 

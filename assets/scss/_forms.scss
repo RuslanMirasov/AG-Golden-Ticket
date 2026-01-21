@@ -2,7 +2,7 @@
   //INPUT
   --input-font-family: var(--font);
   --input-font-size: 20px;
-  --input-font-width: 400;
+  --input-font-weight: 400;
   --input-text-transform: uppercase;
   --input-height: 84px;
   --input-padding: 28px 35px;
@@ -21,7 +21,7 @@
   @media (max-width: 767px) {
     //INPUT
     --input-font-size: 14px;
-    --input-font-width: 600;
+    --input-font-weight: 600;
     --input-height: 42px;
     --input-padding: 12px 14px;
     --input-border: 1px solid var(--brown);
@@ -111,6 +111,7 @@ span.input-icon {
   border-radius: var(--input-border-radius);
   font-family: var(--input-font-family);
   font-size: var(--input-font-size);
+  font-weight: var(--input-font-weight);
   color: var(--input-color);
   padding: var(--input-padding);
   text-transform: var(--input-text-transform);
@@ -188,12 +189,17 @@ textarea {
     text-transform: uppercase;
     cursor: pointer;
 
+    a {
+      display: inline;
+    }
+
     @media (max-width: 767px) {
       padding: 0px 0px 0px 34px;
       font-size: 10px;
-      display: inline-flex;
+      display: inline-block;
       align-items: center;
       align-content: center;
+      text-align: left;
       min-height: 24px;
     }
 

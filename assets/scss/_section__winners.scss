@@ -51,14 +51,13 @@
 
 .table-scroll-area {
   display: block;
-  width: 100%;
+  width: calc(100% + 10px);
   overflow-x: hidden;
   overflow-y: auto;
 
   -webkit-overflow-scrolling: touch;
   @media (max-width: 767px) {
     max-height: 410px;
-    overflow-y: scroll;
   }
 }
 
