@@ -8,6 +8,7 @@
     <meta name="description" content="AG-Golden-Ticket" />
     <link rel="icon" type="image/x-icon" href="./../assets/img/favicon.ico" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="./../assets/css/dropzone.min.css" />
     <link rel="stylesheet" href="./../assets/css/styles.min.css" />
     <title>Личный кабинет</title>
 
@@ -50,7 +51,7 @@
             <li><a href="./../#winners" class="menu__link" data-scrollto="-80">Победители</a></li>
             <li><a href="./../#questions" class="menu__link" data-scrollto="-80">Вопросы</a></li>
             <li>
-              <a href="#" class="menu__link" data-popup-open="online"> <b>участвовать в онлайн-розыгрыше</b> </a>
+              <a href="https://actions.5ka.ru/gold2" class="menu__link" data-popup-open="online"> <b>участвовать в онлайн-розыгрыше</b> </a>
             </li>
             <li>
               <button type="button" class="button-gradient small" data-popup-open="login"><span>Личный кабинет</span></button>
@@ -553,16 +554,104 @@
           <button class="popup-close" data-popup-close></button>
           <h2 class="title title--h2">Загрузить фото</h2>
           <p class="popup__text">Загрузите фото золотого билета <br />и&nbsp;упаковки Alpen Gold</p>
+
+          <script>
+            const uploadFormSend = e => {
+              e.preventDefault();
+
+              // Откріваем всплівашку с загрузкой
+              popup.open('code-activation-process', { title: 'Загрузка...', status: 'loading' });
+
+              const button = e.currentTarget;
+              const form = button.closest('form');
+              const formData = new FormData(form);
+
+              const dropzones = window.dropzones || {};
+
+              Object.entries(dropzones).forEach(([name, dz]) => {
+                if (!dz || !dz.files?.length) return;
+
+                const file = dz.files[0];
+
+                if (file) {
+                  formData.append(name, file, file.name);
+                }
+              });
+
+              // проверка
+              for (const [key, value] of formData.entries()) {
+                console.log(key, value);
+              }
+
+              //  дальше fetch(...) логика и показываем всплывашку с результатом
+
+              setTimeout(() => {
+                popup.open('upload-photo-success');
+              }, 2000);
+            };
+          </script>
+
           <form action="#" class="form" novalidate>
             <span class="inputError"></span>
 
-            <button type="submit" class="button" disabled><span>Готово</span></button>
+            <div class="drop-zones">
+              <div
+                class="dropzone"
+                data-name="ticket"
+                data-message="Нажмите, чтобы загрузить фото билета"
+                data-accept="image/*"
+                data-max-files="1"
+                data-required
+              ></div>
+
+              <div
+                class="dropzone"
+                data-name="pack"
+                data-message="Нажмите, чтобы загрузить фото упаковки (не&nbsp;обязательно)"
+                data-accept="image/*"
+                data-max-files="1"
+              ></div>
+            </div>
+
+            <button type="submit" class="button" disabled onclick="uploadFormSend(event)"><span>Готово</span></button>
           </form>
+        </div>
+
+        <!--UPLOAD PHOTO SUCCESS POPUP -->
+        <div class="popup-content" id="upload-photo-success">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Спасибо!</h2>
+          <p class="popup__text small">Ваши фотографии успешно загружены! После&nbsp;проверки приз будет выдан в&nbsp;личном&nbsp;кабинете.</p>
+          <a href="./../lk" class="button"><span>личный кабинет</span></a>
+        </div>
+
+        <!--UPLOAD PHOTO MODERATION SUCCESS POPUP -->
+        <div class="popup-content" id="upload-photo-moderation-success">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Спасибо!</h2>
+          <p class="popup__text small">
+            Фотографии успешно прошли модерацию! Для&nbsp;получения приза отправьте электронное письмо с&nbsp;документами на
+            <a href="mailto:5@support-promo.ru"><b>5@support-promo.ru.</b></a>
+          </p>
+          <p class="popup__text small">С&nbsp;полным списком информации для&nbsp;вручения приза можно ознакомиться в&nbsp;правилах&nbsp;акции.</p>
+          <a href="./../lk" class="button"><span>личный кабинет</span></a>
+        </div>
+
+        <!--UPLOAD PHOTO ERROR POPUP -->
+        <div class="popup-content" id="upload-photo-error">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="title title--h2">Ошибка!</h2>
+          <p class="popup__text small">
+            Возможно, Ваши фотографии не&nbsp;соответствуют требованиям качества. Продублируйте их, отправив на&nbsp;эл.&nbsp;почту организатора
+            <a href="mailto:5@support-promo.ru"><b>5@support-promo.ru.</b></a>
+          </p>
+          <a href="./../lk" class="button"><span>личный кабинет</span></a>
         </div>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./../assets/js/dropzone.min.js"></script>
     <script src="./../assets/js/forms.js" type="module" defer></script>
     <script src="./../assets/js/scripts.js" type="module" defer></script>
   </body>

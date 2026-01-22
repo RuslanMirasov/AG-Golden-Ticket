@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --font: "5ka", sans-serif;
   --title: "drukwidecyr", sans-serif;
@@ -872,6 +873,11 @@ textarea {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.button-soon:before,
+.button-gradient:before,
+.button:before {
+  pointer-events: none;
 }
 
 .button-soon {
@@ -2992,7 +2998,7 @@ body.is-mobil .plashka span {
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  padding: 50px 10px 50px 10px;
+  padding: 20px 10px 20px 10px;
   backdrop-filter: blur(8px);
   -webkit-transition: opacity 0.5s ease-in-out 0s, visibility 0.5s ease-in-out 0s;
   transition: opacity 0.5s ease-in-out 0s, visibility 0.5s ease-in-out 0s;
@@ -3115,7 +3121,6 @@ body.is-mobil .plashka span {
   margin: 0 auto;
   width: 100%;
   max-width: 800px;
-  pointer-events: all;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -3126,6 +3131,10 @@ body.is-mobil .plashka span {
   padding: 50px 45px 40px 45px;
   -webkit-box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.4);
           box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+.popup-content.active {
+  pointer-events: all;
 }
 .popup-content .button {
   margin: 0 auto;
@@ -3380,4 +3389,195 @@ body.is-mobil .plashka span {
   #status-error .button span {
     font-size: 13px;
   }
+}
+
+#upload-photo-moderation-success .popup__text a,
+#upload-photo-error .popup__text a {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.drop-zones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  gap: 44px;
+}
+@media (max-width: 767px) {
+  .drop-zones {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.dropzone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: calc(50% - 22px);
+  height: 320px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background: #f0f0f0;
+  border-radius: 20px;
+  border: none !important;
+}
+@media (max-width: 767px) {
+  .dropzone {
+    width: 100%;
+    height: 200px;
+    padding: 20px 34px;
+  }
+}
+.dropzone .dz-button {
+  font-family: var(--font) !important;
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+}
+@media (max-width: 767px) {
+  .dropzone .dz-button {
+    font-size: 16px !important;
+  }
+}
+.dropzone .dz-preview {
+  margin: 0;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0) !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+.dropzone .dz-preview.dz-error .dz-image {
+  display: none;
+}
+.dropzone .dz-preview.dz-error:before {
+  content: "Файл не является изображением или размер превышает 10 Мб";
+  color: var(--invalid);
+  font-family: var(--font);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  padding: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+@media (max-width: 767px) {
+  .dropzone .dz-preview.dz-error:before {
+    font-size: 16px;
+  }
+}
+.dropzone .dz-remove {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 0px;
+  color: rgba(0, 0, 0, 0);
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--brown) !important;
+  border-radius: 50px;
+  background: #fff url("../img/svg/close.svg") no-repeat center center;
+  background-size: 50%;
+  -webkit-transform: translate(35%, -35%) rotate(0deg);
+      -ms-transform: translate(35%, -35%) rotate(0deg);
+          transform: translate(35%, -35%) rotate(0deg);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  z-index: 50;
+  will-change: transform;
+}
+@media (hover: hover) {
+  .dropzone .dz-remove:hover {
+    -webkit-transform: translate(35%, -35%) rotate(90deg);
+        -ms-transform: translate(35%, -35%) rotate(90deg);
+            transform: translate(35%, -35%) rotate(90deg);
+  }
+}
+@media (max-width: 767px) {
+  .dropzone .dz-remove {
+    width: 30px;
+    height: 30px;
+  }
+}
+.dropzone .dz-image {
+  width: 100% !important;
+  height: 100% !important;
+  background: #f0f0f0 !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+.dropzone .dz-image img {
+  display: block !important;
+  pointer-events: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  -webkit-filter: none !important;
+          filter: none !important;
+  -webkit-transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+.dropzone .dz-details,
+.dropzone .dz-progress,
+.dropzone .dz-error-message,
+.dropzone .dz-success-mark,
+.dropzone .dz-error-mark {
+  pointer-events: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }

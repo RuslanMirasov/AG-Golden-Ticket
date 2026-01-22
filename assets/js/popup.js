@@ -104,6 +104,10 @@ export const popup = {
     });
   },
 
+  _getActiveContent() {
+    return this._popup.querySelector('.popup-content.active');
+  },
+
   async open(id, data) {
     if (this._isOpening || this._isAnimating) return;
 
@@ -121,7 +125,7 @@ export const popup = {
     // Сообщаем подписчикам о скором открытии нужного контента
     this._emitBeforeOpen(id);
 
-    const currentContent = this._popup.querySelector('.popup-content[style*="display: flex"]');
+    const currentContent = this._getActiveContent();
 
     const currentId = currentContent?.id;
     if (currentId === id) {
@@ -203,8 +207,12 @@ export const popup = {
   async _switchContent(newContent) {
     this._popup.classList.remove('visible');
     await this._waitForTransition(this._backdrop);
+
     this._hideAllContent();
+
     newContent.style.display = 'flex';
+    newContent.classList.add('active');
+
     this._popup.classList.add('visible');
     await this._waitForTransition(this._backdrop);
   },
@@ -212,6 +220,7 @@ export const popup = {
   async _showContent(newContent) {
     this._hideAllContent();
     newContent.style.display = 'flex';
+    newContent.classList.add('active');
 
     const popupHeight = newContent.offsetHeight;
     const shouldLockScroll = popupHeight <= window.innerHeight - 100;
@@ -227,6 +236,7 @@ export const popup = {
   _hideAllContent() {
     this._popup.querySelectorAll('.popup-content').forEach(el => {
       el.style.display = 'none';
+      el.classList.remove('active');
     });
   },
 
