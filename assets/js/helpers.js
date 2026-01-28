@@ -70,15 +70,9 @@ export const initNavigationMenu = () => {
 
 export const applyIsMobilClass = () => {
   const check = () => {
-    const isIOS =
-      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-      // iPadOS 13+ маскируется под macOS
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
+    const isIOS = /Mac|iPhone|iPad|iPod/.test(navigator.platform) || /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
     const isTouchDevice = matchMedia('(hover: none)').matches && matchMedia('(pointer: coarse)').matches;
-
     const isSmallScreen = window.innerWidth < 1280;
-
     const shouldApply = isIOS || (isTouchDevice && isSmallScreen);
 
     document.body.classList.toggle('is-mobil', shouldApply);
