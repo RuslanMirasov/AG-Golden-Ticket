@@ -378,7 +378,8 @@ section {
   position: relative;
   color: inherit;
 }
-.label.label--checkbox .inputError {
+.label.label--checkbox .inputError,
+.label.label--checkbox .text-danger {
   display: none !important;
 }
 
@@ -759,7 +760,8 @@ textarea {
   transition: background-color 9999s ease-in-out 0s;
 }
 
-.inputError {
+.inputError,
+.text-danger {
   display: block;
   width: 100%;
   height: auto;
@@ -781,7 +783,9 @@ textarea {
   font-weight: 400;
   color: var(--invalid);
 }
-.inputError.active {
+.inputError.active, .inputError.field-validation-error,
+.text-danger.active,
+.text-danger.field-validation-error {
   position: relative;
   -webkit-transform: translate(-50%, 0px);
       -ms-transform: translate(-50%, 0px);
@@ -789,7 +793,8 @@ textarea {
   opacity: 1;
 }
 @media (max-width: 767px) {
-  .inputError {
+  .inputError,
+  .text-danger {
     font-size: 14px;
     font-weight: 600;
   }
@@ -2142,7 +2147,8 @@ body.is-mobil .plashka span {
   margin-top: 30px;
   max-width: 1026px;
 }
-.form--questions .inputError {
+.form--questions .inputError,
+.form--questions .text-danger {
   text-transform: uppercase;
 }
 @media (max-width: 1279px) {

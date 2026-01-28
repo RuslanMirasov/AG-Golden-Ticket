@@ -52,12 +52,34 @@ export const initNavigationMenu = () => {
   menuLinks.forEach(link => link.addEventListener('click', toggleMenu));
 };
 
+// export const applyIsMobilClass = () => {
+//   const check = () => {
+//     const isTouchDevice = matchMedia('(hover: none)').matches && matchMedia('(pointer: coarse)').matches;
+//     const isSmallScreen = window.innerWidth < 1280;
+//     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+//     const shouldApply = (isTouchDevice && isSmallScreen) || isSafari;
+
+//     document.body.classList.toggle('is-mobil', shouldApply);
+//   };
+
+//   check();
+
+//   window.addEventListener('resize', check);
+//   window.addEventListener('orientationchange', check);
+// };
+
 export const applyIsMobilClass = () => {
   const check = () => {
+    const isIOS =
+      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      // iPadOS 13+ маскируется под macOS
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
     const isTouchDevice = matchMedia('(hover: none)').matches && matchMedia('(pointer: coarse)').matches;
+
     const isSmallScreen = window.innerWidth < 1280;
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    const shouldApply = (isTouchDevice && isSmallScreen) || isSafari;
+
+    const shouldApply = isIOS || (isTouchDevice && isSmallScreen);
 
     document.body.classList.toggle('is-mobil', shouldApply);
   };
@@ -92,24 +114,6 @@ function showCopyNotification() {
   const notification = document.createElement('div');
   notification.textContent = 'Скопировано в буфер обмена';
   notification.classList.add('notify');
-
-  // Object.assign(notification.style, {
-  //   position: 'fixed',
-  //   bottom: '24px',
-  //   left: '50%',
-  //   transform: 'translateX(-50%)',
-  //   padding: '14px 24px',
-  //   background: 'var(--yellow)',
-  //   border: '2px solid var(--brown)',
-  //   fontFamily: 'var(--font)',
-  //   fontWidth: '900',
-  //   color: 'var(--brown)',
-  //   fontSize: '15px',
-  //   borderRadius: '50px',
-  //   zIndex: '9999',
-  //   opacity: '0',
-  //   transition: 'opacity 0.3s ease',
-  // });
 
   document.body.appendChild(notification);
 
